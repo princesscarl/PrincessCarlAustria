@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> Princess Carl Austria </title>
+    <link rel="icon" type="images/x-icon" href="https://lh4.googleusercontent.com/xqd3WBM1aJYSycVUN1WjLt9VS4Qu8cBovT_j42muFouV3WhKmRh9L8P6MOORyDZCZGk=w2400"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/faf8bee4ee.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/faf8bee4ee.js" crossorigin="anonymous"></script>
+    <script src="https://scripts.sirv.com/sirvjs/v3/sirv.js"></script>
+
+    <style>
+      .box {
+        position: relative;
+      }
+      
+      .overlay {
+        opacity: 1;
+        display: block;
+        transition: .5s ease;
+        backface-visibility: hidden;
+        width: 100%; 
+        text-align: center; 
+        height: auto;
+        border-radius: 10px;
+      }
+
+      .title {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+      }
+      
+      .box:hover .overlay {
+        opacity: 0.3;
+      }
+
+      .box:hover .title {
+        opacity: 1;
+      }
+
+      .text {
+        color:#285c7c;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .figure {
+        position: relative;
+        width: 360px;
+        max-width: 100%;
+      }
+
+      .figure img.image-hover {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        object-fit: contain;
+        opacity: 0;
+        transition: opacity .2s;
+      }
+
+      .figure:hover img.image-hover {
+        opacity: 1;
+      }
+    </style>
+
+
+</head>
+
+<body style="background-color: whitesmoke; font-family: 'Poppins', sans-serif;">
+
+  <div style="width: 80%; margin-top:30px; margin-bottom: 30px; margin-right: auto; margin-left: auto; background-color:lavender; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+    <!--Navbar-->
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: lavender; border-bottom: 1px solid rgba(116, 123, 131, 0.479);">
+        <div class="container-fluid">
+          <a class="navbar-brand d-block d-lg-none" href="#Home">
+            <img src="https://lh5.googleusercontent.com/Ms61evlrW-m37CFv5rdTiJomFxoFlhejFE9UNCuF_mcbQHyUvUJuu6_PNLZWKhn4kBc=w2400" height="50" />
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+       
+          <div class=" collapse navbar-collapse " id="navbarNavDropdown">
+            <ul class="navbar-nav mx-auto ">
+              <li class="nav-item" style="line-height: 50px;">
+                <a class="nav-link mx-2" onclick="hideSections()" aria-current="page" href="#Home">Home</a>
+              </li>
+              <li class="nav-item" style="line-height: 50px;">
+                <a class="nav-link mx-2" onclick="hideResume()" href="#Resume">Resume</a>
+              </li>
+              <li class="nav-item d-none d-lg-block" style="line-height: 50px;">
+                <a class="nav-link mx-2" href="# Home">
+                  <img src="https://lh5.googleusercontent.com/Ms61evlrW-m37CFv5rdTiJomFxoFlhejFE9UNCuF_mcbQHyUvUJuu6_PNLZWKhn4kBc=w2400" height="50" />
+                </a>
+              </li>
+              <li class="nav-item" style="line-height: 50px;">
+                <a class="nav-link mx-2" onclick="hideAbout()" href="#About">About Me</a>
+              </li>
+              <li class="nav-item" style="line-height: 50px;">
+                <a class="nav-link mx-2" onclick="hideHobbies()" href="#Hobbies">Hobbies</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <section class = "header mt-3">
+      <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-9">
+            <img src="https://lh3.googleusercontent.com/YB406MkLP_3kOR8HW8S31PenJe4iqDaudswvQm0bZXewyaNjRnc68ntKxtTOcOqt7aA=w2400" width="100%" height="auto">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id = "Home" style="display: block;">
+        <div class="container-fluid mt-3">
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-3 text-center mb-3">
+                <img class="img-fluid" src="https://lh5.googleusercontent.com/7AM7Rztg1y7DT73omRt7q8QsXzGfxnfQdo2vYFLF8ZMKtYtx0emVu78gx-IUORvQLOo=w2400" style="border-radius: 50%; border: 1px solid #96A899; width: 230px; height: auto;" >
+            </div>
+            <div class="col-md-6 mt-3 text-justify">
+              <h3>Hi, I am PRINCESS CARL AUSTRIA</h3>
+              <p>A 4th year student in the Polytechnic University
+              of the Philippines in Sto.Tomas, Batangas. She
+              is aspiring to be a web developer if given an
+              opportunity, particularly as a front-end developer.</p>
+              <div class="row d-flex justify-content-center mt-3 mb-3" style="padding: 5px;">
+                <div class="col-lg-7 text-center" style="font-size: 20px;">
+                    <a class="media-links w-100 p-4" href="https://www.facebook.com/princesscarll" style="color:black;">
+                      <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                    </a>
+                
+                    <a class="media-links w-100 p-4" href="https://z-p4.www.instagram.com/prinsesakarlo/" style="color:black;">
+                      <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                    </a>
+            
+                    <a class="media-links w-100 p-4" href="https://twitter.com/chuuushy" style="color:black;">
+                      <i class="fa-brands fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div style="width: 80%; margin-top:30px; margin-bottom: 30px; margin-right: auto; margin-left: auto; background-color:lavender; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+      <section id = "Resume" style="display: none;">
+      <div class="container-fluid mt-5">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-10 mt-3 text-right">
+            <a class="dl-link w-100 p-4" id="link" href="https://drive.google.com/file/d/17wQqRG3l3ZZIrPHcOh8fX3BEz-Xk0Hj-/view?usp=sharing" style="color:black; font-size: 20px;">
+            <i class="fa-solid fa-file-arrow-down" aria-hidden="true" onclick="document.getElementById('link').click()"></i>
+            </a>
+          </div>
+
+          <div class="col-lg-9 mt-5 mb-3">
+            <i class="fa-solid fa-house" aria-hidden="true" style="float: left;"></i>
+            <p style="display: inline-block; text-align: right; margin-left: 10px;">0415, Purok 4 Brgy. Milagrosa Calamba City, Laguna</p>
+            <br>
+
+            <i class="fa-solid fa-envelope" aria-hidden="true" style="float: left;"></i>
+            <p style="display: inline-block; text-align: right; margin-left: 10px;"><a href ="princesscarl975@gmail.com" style="color: black;">princesscarl975@gmail.com</a></p>
+            
+            <br>
+            <i class="fa-solid fa-hashtag" aria-hidden="true" style="float: left;"></i>
+            <p style="display: inline-block; text-align: right; margin-left: 10px;">09633660818</p>
+
+            <hr style="background-color: #96A899;">
+
+            <h3> EDUCATION </h3>
+            <i class="fa-solid fa-graduation-cap" aria-hidden="true" style="float: left;"></i>
+            <p style="display: inline-block; text-align: right; margin-left: 10px; font-weight: bold;">Bachelor of Science in Information Technology</p>
+            <p>Polytechnic University of the Philippines - Sto. Tomas, Batangas</p>
+            <p>A. Bonifacio St., Sto. Tomas, Batangas</p>
+            <p>2019 - 2023</p>
+            <br>
+
+            <i class="fa-solid fa-graduation-cap" aria-hidden="true" style="float: left;"></i>
+            <p style="display: inline-block; text-align: right; margin-left: 10px; font-weight: bold;">Science, Technology, Engineering and Mathematics</p>
+            <p>STI College Calamba</p>
+            <p>Barangay Uno, National Highway, Calamba City, Laguna</p>
+            <p>2017 - 2019</p>
+
+            <hr style="background-color: #96A899;">
+
+            <h3> AWARDS AND RECOGNITIONS</h3>
+            <i class="fa-solid fa-award" aria-hidden="true" style="float: left;"></i>
+            <p style="display: inline-block; text-align: right; margin-left: 10px; font-weight: bold;">President's Lister</p>
+            <p>Polytechnic University of the Philippines</p>
+            <p>2020 - 2022</p>
+
+            <hr style="background-color: #96A899;">
+
+            <h3>TECHNICAL AND NON-TECHNICAL SKILLS</h3>
+            <ul>
+              <li style="font-weight: bold;">Web and Graphic Design</li>
+              <p>Figma</p>
+
+              <li style="font-weight: bold;">Front-End Development</li>
+              <p>HTML, CSS, Bootstrap</p>
+            </ul>
+
+            <hr style="background-color: #96A899;">
+
+            <h3> TOOLS </h3>
+            <i class="fa-brands fa-microsoft" aria-hidden="true" style="float: left;"></i>
+            <p style="display: inline-block; text-align: right; margin-left: 10px; font-weight: bold;">Microsoft Office Suite</p>
+
+            <hr style="background-color: #96A899;">
+
+            <h3> PROJECT AND RESEARCH</h3>
+            <ul>
+              <li><p style="font-weight: bold;">Katipunan ng Kabataan Information System (KKIS)</p></li>
+              <p>Capstone Project</p>
+              <p>Polytechnic University of the Philippines</p>
+              <p>February 2023</p>
+
+              <li><p style="font-weight: bold;">Computer Literacy of PUP Sto. Tomas Branch Student: Basis for Development of ICT Training Plan</p></li>
+              <p>Research Paper</p>
+              <p>Polytechnic University of the Philippines</p>
+              <p>February 2022</p>
+            </ul>
+            
+          </div>
+        </div>
+      </div>
+      </section>
+    </div>
+
+    <div style="width: 80%; margin-top:30px; margin-bottom: 30px; margin-right: auto; margin-left: auto; background-color: #9ab6c7; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+      <section id = "About" style="display: none;">
+        <div class="container-fluid mt-3">
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-9 mt-3 mb-3">
+              <img src="https://lh3.googleusercontent.com/NyU8fizg4XL5ou9Ok7r5Mz9LHRGAmRfXX3hJnabVi6LzmZjhI5CWc3BM92AO07p67VI=w2400" style="width: 100%; height: auto;">
+            </div>
+          </div>
+        </div>
+
+        <div class="container-fluid mt-3">
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-4 mt-3 mb-3">
+              <ul>
+                <p style="font-weight: bold;">At first people think that...</p>
+                <li>I am mean.</li>
+                <li>I am emotionless.</li>
+                <li>I am unbothered.</li>
+                <li>I do not care about anything.</li>
+              </ul>
+            </div>
+
+            <div class="col-lg-4 mt-3">
+              <ul>
+                <p style="font-weight: bold;">My friends and family knew that...</p>
+                <li>I am smart.</li>
+                <li>I am qiuet.</li>
+                <li>I am reserved.</li>
+                <li>I am cold but I care.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div style="width: 80%; margin-top:30px; margin-bottom: 30px; margin-right: auto; margin-left: auto; background-color: #9ab6c7; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+      <section id = "Interest" style="display: none;">
+        <div class="container-fluid mt-3">
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-9 mt-3 mb-3">
+              <img alt="true" src="https://lh4.googleusercontent.com/XiCCO-vtSGA9LVQmaGoxOyoJ-3WrCqMmRTN27n3c4UU8UHkZcUnc4z1ghPdfNEI60X0=w2400" style="width: 100%; height: auto;">
+            </div>
+          </div>
+
+          <div class="row d-flex justify-content-center">
+            <h3 style="text-align: center; font-weight: bold;">ANIME</h3>
+            <div class="box col-lg-4 mt-3 mb-3">
+              <img class = "overlay" alt="true" src="https://lh6.googleusercontent.com/Bis6KScdxYILNfTZywYTiV8HpYrRYEQh5CjY29nftsAbr_ADk63Uo5MkH7xbx6tpSsM=w2400">
+              <div class="title">
+                <div class="text">PONYO</div>
+              </div>
+            </div>
+
+            <div class="box col-lg-4 mt-3 mb-3">
+              <img class = "overlay" alt="true" src="https://lh6.googleusercontent.com/FuY8eQ8394ec-LjkER4TNRsFrrSdwT-sda2awZfqjwgv1yXa67j8tezL6Mk_pIaCuSI=w2400">
+              <div class="title">
+                <div class="text">THE WIND RISES</div>
+              </div>
+            </div>
+
+            <div class="box col-lg-4 mt-3 mb-3">
+              <img class = "overlay" alt="true" src="https://lh5.googleusercontent.com/djs27MzjqFDiklq9SDH4a9Xn6im0uWc99SabjSbQBEr2WiBOgVdTQuRJ6LbjgOTcaX8=w2400">
+              <div class="title">
+                <div class="text">ARRIETTY</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row d-flex justify-content-center mt-5">
+            <h3 style="text-align: center; font-weight: bold;">MOVIE</h3>
+            <div class="box col-lg-4 mt-3 mb-3">
+              <img class = "overlay" alt="true" src="https://lh5.googleusercontent.com/IVhJDLtk7tnDPtqALNrByrxDq-_ZRh5QKF3qIdik_GoTXSmuSk3ee3tthsa3KSp1XAQ=w2400">
+              <div class="title">
+                <div class="text">LITTLE WOMEN</div>
+              </div>
+            </div>
+
+            <div class="box col-lg-4 mt-3 mb-3">
+              <img class = "overlay" alt="true" src="https://lh4.googleusercontent.com/o5wISvnNGmaLnZWvYmJZJ362OSspP5etV8VO-ic8hokThE3NBBE896GbkxGww-dQ-zU=w2400">
+              <div class="title">
+                <div class="text">PRIDE AND PREJUDICE</div>
+              </div>
+            </div>
+
+            <div class="box col-lg-4 mt-3 mb-3">
+              <img class = "overlay" alt="true" src="https://lh5.googleusercontent.com/j5fI0-GjdBzX1mXNpcgxZydmLtGbIng9Kfk04n4POr2arAU5H9iD5E4u27aqRFCrLts=w2400">
+              <div class="title">
+                <div class="text">HOW TO LOSE A GUY IN 10 DAYS</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row d-flex justify-content-center mt-5">
+            <h3 style="text-align: center; font-weight: bold;">KPOP - SEVENTEEN</h3>
+            <div class="box col-lg-4 mt-3 mb-3">
+              <img class = "overlay" alt="true" src="https://lh3.googleusercontent.com/H76Q_7nXLONzsL5JeS0YE2PKw42WVoS8WxEjM5bIhNZ_XRO20oOD6Nc5Sn8wsEvqm2E=w2400">
+              <div class="title">
+                <div class="text">YOUR CHOICE</div>
+                  <p>Same dream, Same mind, Same night</p>
+                  <p>Game Boi</p>
+                  <p>Anyone</p>
+              </div>
+            </div>
+
+            <div class="box col-lg-4 mt-3 mb-3">
+              <img class = "overlay" alt="true" src="https://lh3.googleusercontent.com/drIjS-180tgF7vJ-il7VCYgyfcXHvY_FqnhP0w0ca017Ut0N6p8suyPjQnHMlM7vvsU=w2400">
+              <div class="title">
+                <div class="text">ATTACCA</div>
+                  <p>To You</p>
+                  <p>Imperfect Love</p>
+                  <p>2 MINUS 1</p>
+              </div>
+            </div>
+
+            <div class="box col-lg-4 mt-3 mb-3">
+              <img class = "overlay" alt="true" src="https://lh3.googleusercontent.com/X3BwKvsdaZuhfvmxp_qqil2rUg-fqowVg8ouqBAflfVBzTM4IfGIm7klB83GVGMEGHg=w2400">
+              <div class="title">
+                <div class="text">FACE THE SUN</div>
+                  <p>'bout you</p>
+                  <p>DON QUIXOTE</p>
+                  <p>Ash</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+    </div>
+
+    <div style="width: 80%; margin-top:30px; margin-bottom: 30px; margin-right: auto; margin-left: auto; background-color: lavender; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+      <section id = "Hobbies" style="display: none;">
+        <div class="container-fluid mt-3">
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-9 mt-3 mb-3">
+              <img alt="true" src="https://lh5.googleusercontent.com/GX_5ZncVrtmtTZYJ6l3kIMV0SW39MtYF5zasDrKHZe6-NeaS9LOUE64IxF8MgNrkAw8=w2400" style="width: 100%; height: auto;">
+            </div>
+          </div>
+
+          <div class="row d-flex justify-content-center" style="text-align: center;">
+            <h3 style="text-align: center; font-weight: bold;">PAINTING</h3>
+            <div class="box col-lg-4 mt-3 mb-3">
+              <img class = "overlay" alt="true" src="https://lh6.googleusercontent.com/RBem9QQezQlhyxs0g6JjZIlK-cY5QyJvg-J4wdMSowpbVxTdDXOu98iwF-xj1xEKXPs=w2400">
+              <div class="title">
+                <div class="text">Turnip Head</div>
+                  <p>Howl's Moving Castle</p>
+              </div>
+            </div>
+
+            <div class="box col-lg-4 mt-3 mb-3">
+              <img class = "overlay" alt="true" src="https://lh4.googleusercontent.com/0W75w3qhM1F6vg3GHQJYXdlJ6_qTKkI0TVdHytwEkfuyTy4svs1pBs23Xa-k2b3qcwc=w2400">
+              <div class="title">
+                <div class="text">The Cat and the Chick</div>
+              </div>
+            </div>
+
+            <div class="box col-lg-6 mt-3 mb-3">
+                <img class = "overlay" alt="true" src="https://lh6.googleusercontent.com/LvTZ7WK9T6AKHCOl5UNNewNsgOEP13f1-4Y7peCXyLO1bESSfJnnL1TVwuJszhWjUbA=w2400">
+                <div class="title">
+                  <div class="text">Shun Kazama</div>
+                  <p>From Up on Poppy Hill</p>
+                </div>
+            </div>
+
+          <div class="row d-flex justify-content-center mt-5">
+            <h3 style="text-align: center; font-weight: bold;">READING</h3>
+            <div class="col-lg-4 mt-3 mb-3 text-center">
+              <div class="figure">
+                <a>
+                <img class="Sirv image-main" src="https://lh6.googleusercontent.com/2eF7UaX-5ttjlyKZhXBTM5_kyK6xvV4mmnPRWcJCpvveRveFL05u3oySoQnm-U-VQxQ=w2400" style="border-radius: 10px;">
+                <img class="Sirv image-hover" src="https://lh5.googleusercontent.com/HNQsWqyqUAaV78GVgi4kcTTwRqV_xmUzzwyLJWjIy1ft2G57wYxyvw4mojyyHcGmXkY=w2400" style="border-radius: 10px;">
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 mt-3 mb-3 text-center">
+              <div class="figure">
+                <a>
+                <img class="Sirv image-main" src="https://lh4.googleusercontent.com/Xm5f5D7fBGj6H1ZfjYyNirq4cHmJEkg-UkZku8Mq1oxNjBQueQQTdNNh8iffvmfAaZQ=w2400" style="border-radius: 10px;">
+                <img class="Sirv image-hover" src="https://lh3.googleusercontent.com/xrenSxH6cvfvU246-PoypS8TsWRekl2iMXMcgWSXnRAejZeFOw1YDaAYU5xL3L_FAdE=w2400" style="border-radius: 10px;">
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 mt-3 mb-3 text-center">
+              <div class="figure">
+                <a>
+                <img class="Sirv image-main" src="https://lh4.googleusercontent.com/PlKsrlO89VBpjLt2ZksifKZU8quwA30Q-L3_C8vWaLAXgMSAbddLXz2EZceOs8lm09s=w2400" style="border-radius: 10px;">
+                <img class="Sirv image-hover" src="https://lh5.googleusercontent.com/lTxsZsFPRhihvEpk6bLCLdL_NPEPnJSLMv1DFJdooON0RCA_rXs2Aq7cqRJotD6cvm8=w2400" style="border-radius: 10px;">
+                </a>
+              </div>
+          </div>
+
+          <h3 style="text-align: center; font-weight: bold; margin-top: 40px;">WRITING</h3>
+          <div class="container-fluid mt-3 mb-3" style="text-align: center; background-color: #e0e0f7; border-radius: 10px; width: 90%; box-shadow: rgba(0, 0, 0, 0.219) 0px 2px 4px 0px inset;">
+            <div class="row d-flex justify-content-center" style="display: flex; align-items: center;">
+              <div class="col-lg-4 text-center mt-3 mb-3">
+                <img class="img-fluid" src="https://lh4.googleusercontent.com/yVQ8jOpa6xCxXxxxN-IyWMXxoQDjaRmXrgYL13aluYZOv7U8HzGzOzOmrxtWbBGax5U=w2400" style="border-radius: 10px; width: 250px; height: auto;" >
+              </div>
+  
+              <div class="col-lg-8 mt-3 text-justify">
+                <p>
+                  The truth is, I am scared to be left behind <br>
+                  That is why I don't let people in <br>
+                  It is really not because I like to be alone <br>
+                  Or that I am happy in my own world <br>
+                  I'm scared cause I know people are not meant to stay <br>
+                  And you will all just leave once I let you in <br>
+                  Once you fully know me <br>
+                  Cause I am quiet and I am boring <br>
+                  And I don't know how to make people stay <br>
+                  I don't know if I will ever be a place for rest <br>
+                  Cause I overthink a lot <br>
+                  Cause even I don't feel at rest with myself <br>
+                  And maybe that is why I leave people first or push them away <br>
+                  Cause I don't want to lose another precious person <br>
+                  Or maybe I am just scared to know that there is yet another <br>
+                  person who is not afraid to lose me.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid mt-3 mb-3" style="text-align: center; background-color: #e0e0f7; border-radius: 10px; width: 90%; box-shadow: rgba(0, 0, 0, 0.219) 0px 2px 4px 0px inset;">
+            <div class="row d-flex justify-content-center" style="display: flex; align-items: center;">
+              <div class="col-lg-4 text-center mt-3 mb-3">
+                <img class="img-fluid" src="https://lh5.googleusercontent.com/Z3J-JOJK6gRrHinoCYzNkClpOmjVai8t6LJxkv9nk3OU5JeC8wbAmj1qsU3Mq3346G0=w2400" style="border-radius: 10px; width: 250px; height: auto;" >
+              </div>
+              <div class="col-lg-8 mt-3 text-justify">
+                <p>
+                  It gets overwhelming sometimes <br>
+                  With the thought of us never meeting in this lifetime <br>
+                  Or you, not knowing that I am existing at the same time <br>
+                  But I am slowly getting used to admiring you from a far <br>
+                  Believing that in another universe, <br>
+                  there is a version of me that stays where you are <br>
+                  And in this lifetime, in this universe, <br>
+                  I have to be contented with you only loving me as a part of your crowd.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid mt-3 mb-3"  style="text-align: justify; background-color: #e0e0f7; border-radius: 10px; width: 90%; box-shadow: rgba(0, 0, 0, 0.219) 0px 2px 4px 0px inset;">
+            <div class="row d-flex justify-content-center" style="display: flex; align-items: center;">
+              <div class="col-lg-4 text-center mt-3 mb-3">
+                <img class="img-fluid" src="https://lh5.googleusercontent.com/byY-2SMaKGYSxNv_NUejw3Cl3ZU4DFt5HKS1dIKTrgPheqVIh98Oh9LNpLyYdLVU7_o=w2400" style="border-radius: 10px; width: 250px; height: auto;" >
+              </div>
+
+              <div class="col-lg-8 mt-3 text-justify">
+                <p>
+                I'm not the type who waits for sunrise or sunsets <br>                  
+                I just want to be your twilight <br>
+                Cause with you <br>
+                I won't need endings nor new beginnings <br>
+                I'll always have you in every in-between <br>
+                Cause in wherever end you may be <br>
+                I will always meet you halfway <br>
+                I will always stay here <br>
+                Even in your in-betweens.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid mt-3 mb-5" style="text-align: center; background-color: #e0e0f7; border-radius: 10px; width: 90%; box-shadow: rgba(0, 0, 0, 0.219) 0px 2px 4px 0px inset;">
+            <div class="row d-flex justify-content-center" style="display: flex; align-items: center;">
+              <div class="col-lg-4 text-center mt-3 mb-3">
+                <img class="img-fluid" src="https://lh5.googleusercontent.com/88VkKjfCe07Wfo9-AO4ogqjT1in4Gb0jqDlufYaW9nRdUFvexfqWMTnONzJCkpyzKCk=w2400" style="border-radius: 10px; width: 250px; height: auto;" >
+              </div>
+              <div class="col-lg-8 mt-3 text-justify">
+                <p>
+                  I like it more when the sun rises than when it sets <br>
+                  Cause when the sun sets, I would have to let you go <br>
+                  When the sun sets, we would have to part ways <br>
+                  But when the sun rises, I'll have a new morning to be with you <br>
+                  A new day to spend with you <br>
+
+                  I would rather have sunrises to spend my day with you <br>
+                  Than have sunsets that will end our day <br>
+                  I would rather hold your hand in every day that would come <br>
+                  Than let it go when the day ends.
+                </p>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+      <script>
+        function hideSections() {
+          var a = document.getElementById("Home");
+          if (a.style.display === "block") {
+            var x = document.getElementById("Resume");
+              if (x.style.display === "block") {
+              x.style.display = "none";
+        } 
+          }
+          var y = document.getElementById("About");
+            if (y.style.display === "block") {
+            y.style.display = "none";
+          }
+
+          var z = document.getElementById("Interest");
+            if (z.style.display === "block") {
+            z.style.display = "none";
+          }
+
+          var b = document.getElementById("Hobbies");
+            if (b.style.display === "block") {
+            b.style.display = "none";
+          }
+
+        }
+
+        function hideResume() {
+        var x = document.getElementById("Resume");
+        if (x.style.display === "none") {
+        x.style.display = "block";
+        } 
+        else {
+        x.style.display = "none";
+        }
+
+        var y = document.getElementById("About");
+        if (y.style.display === "block") {
+        y.style.display = "none";
+        }
+
+        var z = document.getElementById("Interest");
+        if (z.style.display === "block") {
+        z.style.display = "none";
+        }
+
+        var b = document.getElementById("Hobbies");
+        if (b.style.display === "block") {
+        b.style.display = "none";
+        }
+      }
+
+      function hideAbout()
+      {
+        var y = document.getElementById("About");
+        if (y.style.display === "none") {
+        y.style.display = "block";
+        } else {
+        y.style.display = "none";
+        }
+
+        var z = document.getElementById("Interest");
+        if (z.style.display === "none") {
+        z.style.display = "block";
+        } else {
+        z.style.display = "none";
+        }
+
+        var x = document.getElementById("Resume");
+        if (x.style.display === "block") {
+        x.style.display = "none";
+        } 
+
+        var b = document.getElementById("Hobbies");
+        if (b.style.display === "block") {
+        b.style.display = "none";
+        }
+      }
+
+      function hideHobbies()
+      {
+        var b = document.getElementById("Hobbies");
+        if (b.style.display === "none") {
+        b.style.display = "block";
+        } else {
+        b.style.display = "none";
+        }
+
+        var x = document.getElementById("Resume");
+        if (x.style.display === "block") {
+        x.style.display = "none";
+        } 
+
+        var y = document.getElementById("About");
+        if (y.style.display === "block") {
+        y.style.display = "none";
+        }
+
+        var z = document.getElementById("Interest");
+        if (z.style.display === "block") {
+        z.style.display = "none";
+        }
+      }
+ 
+      </script>
+</body>
+</html>
